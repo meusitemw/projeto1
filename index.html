@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Visão Clara - Ótica especializada em exames de vista, óculos de grau e sol, lentes de contato e tratamentos oculares. Agende sua consulta.">
-    <title>Visão Clara | Ótica Premium e Consultas Oftalmológicas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Lab Express - Soluções Ópticas Rápidas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* Reset e Variáveis */
         :root {
-            --primary: #0056b3;
-            --secondary: #ff7d1a;
-            --dark: #2c3e50;
-            --light: #f8f9fa;
-            --gray: #6c757d;
+            --dark-gray: #2c3e50;
+            --medium-gray: #34495e;
+            --light-gray: #ecf0f1;
+            --blue: #3498db;
+            --dark-blue: #2980b9;
+            --yellow: #f1c40f;
+            --orange: #e67e22;
+            --purple: #9b59b6;
             --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --black: #1a252f;
             --transition: all 0.3s ease;
         }
         
@@ -28,121 +29,50 @@
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--black);
             line-height: 1.6;
             overflow-x: hidden;
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            position: relative;
-            color: var(--primary);
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 15px auto 30px;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto 50px;
-            font-size: 1.1rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--secondary);
-            color: var(--white);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            box-shadow: var(--shadow);
-        }
-        
-        .btn:hover {
-            background: #e67300;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(255, 125, 26, 0.3);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--secondary);
-            color: var(--secondary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--secondary);
-            color: var(--white);
-        }
-        
-        /* Header */
+        /* Header Aprimorado */
         header {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 0 5%;
             position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
+            top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
         }
         
         header.scrolled {
-            background: var(--white);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+            height: 70px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--white);
             text-decoration: none;
             display: flex;
             align-items: center;
         }
         
         .logo span {
-            color: var(--secondary);
+            color: var(--blue);
         }
         
         .logo i {
             margin-right: 10px;
-            font-size: 1.5rem;
+            font-size: 24px;
         }
         
         nav ul {
@@ -151,16 +81,23 @@
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin: 0 10px;
+            position: relative;
         }
         
         nav ul li a {
+            color: var(--white);
             text-decoration: none;
-            color: var(--dark);
             font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 4px;
             transition: var(--transition);
-            position: relative;
-            font-size: 1rem;
+            display: block;
+        }
+        
+        nav ul li a.active, nav ul li a:hover {
+            background-color: var(--black);
+            transform: translateY(-2px);
         }
         
         nav ul li a::after {
@@ -168,1053 +105,736 @@
             position: absolute;
             width: 0;
             height: 2px;
-            background: var(--secondary);
-            bottom: -5px;
+            background: var(--blue);
+            bottom: 0;
             left: 0;
             transition: var(--transition);
         }
         
-        nav ul li a:hover::after,
-        nav ul li a.active::after {
+        nav ul li a:hover::after {
             width: 100%;
         }
         
-        nav ul li a:hover {
-            color: var(--primary);
+        .login-btn {
+            background-color: var(--blue);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .login-btn:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .login-btn i {
+            margin-right: 8px;
         }
         
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--dark);
+            color: var(--white);
+            font-size: 24px;
             cursor: pointer;
         }
         
-        /* Hero Section */
+        /* Hero Section Aprimorada */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             height: 100vh;
             min-height: 700px;
+            background: linear-gradient(135deg, var(--medium-gray), var(--dark-gray));
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
             display: flex;
             align-items: center;
-            color: var(--white);
-            text-align: center;
-            padding-top: 80px;
+            justify-content: center;
         }
         
-        .hero-content {
+        .rocket-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .rocket {
+            width: 400px;
+            height: 400px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="white" d="M50,10 L60,40 L70,30 L50,10 Z M30,30 L40,40 L50,10 L30,30 Z M70,30 L60,40 L80,50 L70,30 Z M40,40 L30,30 L20,50 L40,40 Z M60,40 L40,40 L50,60 L60,40 Z M80,50 L60,40 L50,60 L80,50 Z M20,50 L40,40 L50,60 L20,50 Z M50,60 L40,70 L60,70 L50,60 Z"/></svg>') no-repeat center center;
+            background-size: contain;
+            opacity: 0.8;
+            transition: all 1s ease-out;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: scale(0.95);
+            padding: 0 20px;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .slide h1 {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .highlight {
+            background-color: rgba(52, 152, 219, 0.5);
+            padding: 5px 15px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .carousel-controls {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 10;
+        }
+        
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            z-index: 10;
+        }
+        
+        .carousel-dot {
+            width: 14px;
+            height: 14px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-dot.active {
+            background-color: var(--white);
+            transform: scale(1.2);
+        }
+        
+        /* Seção de Destaques Aprimorada */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .highlight-card {
+            padding: 60px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            z-index: 1;
+        }
+        
+        .highlight-card:nth-child(1) {
+            background-color: var(--dark-blue);
+        }
+        
+        .highlight-card:nth-child(2) {
+            background-color: var(--medium-gray);
+        }
+        
+        .highlight-card:nth-child(3) {
+            background-color: var(--yellow);
+        }
+        
+        .highlight-card:nth-child(4) {
+            background-color: var(--orange);
+        }
+        
+        .highlight-card-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .highlight-card .logo {
+            font-size: 32px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .highlight-card h2 {
+            font-size: 28px;
+            margin: 15px 0;
+            font-weight: 700;
+        }
+        
+        .highlight-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Seção CTA Aprimorada */
+        .cta-section {
+            background-color: var(--dark-gray);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="white" d="M50,10 L60,40 L70,30 L50,10 Z M30,30 L40,40 L50,10 L30,30 Z M70,30 L60,40 L80,50 L70,30 Z M40,40 L30,30 L20,50 L40,40 Z M60,40 L40,40 L50,60 L60,40 Z M80,50 L60,40 L50,60 L80,50 Z M20,50 L40,40 L50,60 L20,50 Z M50,60 L40,70 L60,70 L50,60 Z"/></svg>') no-repeat center center;
+            background-size: 400px;
+            opacity: 0.03;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
             max-width: 800px;
             margin: 0 auto;
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
+        .cta-section h2 {
+            font-size: clamp(28px, 5vw, 42px);
+            color: var(--white);
             margin-bottom: 30px;
-            opacity: 0.9;
+            font-weight: 700;
         }
         
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        
-        /* Services */
-        .services {
-            background: var(--light);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .service-card {
-            background: var(--white);
-            padding: 40px 30px;
-            border-radius: 10px;
-            transition: var(--transition);
-            text-align: center;
-            box-shadow: var(--shadow);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .service-card p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-        
-        /* About */
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-img {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .shield-icon {
+            font-size: 80px;
+            color: #2ecc71;
+            margin: 30px 0;
+            display: inline-block;
             transition: var(--transition);
         }
         
-        .about-img:hover img {
-            transform: scale(1.05);
+        .shield-icon:hover {
+            transform: scale(1.1) rotate(10deg);
         }
         
-        .about-content {
-            flex: 1;
-        }
-        
-        .about-content h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+        .cta-section p {
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--white);
+            margin-bottom: 40px;
             font-weight: 600;
         }
         
-        .about-content p {
-            margin-bottom: 20px;
-            color: var(--gray);
-        }
-        
-        .about-features {
-            margin: 30px 0;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-        
-        .feature-icon {
-            color: var(--secondary);
-            font-size: 1.2rem;
-            margin-right: 15px;
-            margin-top: 3px;
-        }
-        
-        /* Products */
-        .products {
-            background: var(--light);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .product-card {
-            background: var(--white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
+        .cta-btn {
+            background-color: var(--blue);
+            color: var(--white);
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 18px;
             transition: var(--transition);
-            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--secondary);
-            color: var(--white);
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            z-index: 1;
-        }
-        
-        .product-img {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .product-card:hover .product-img img {
-            transform: scale(1.1);
-        }
-        
-        .product-info {
-            padding: 20px;
-        }
-        
-        .product-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-        
-        .product-info p {
-            color: var(--gray);
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        
-        .product-price {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-        }
-        
-        .price {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--secondary);
-        }
-        
-        .old-price {
-            text-decoration: line-through;
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-left: 5px;
-        }
-        
-        /* Testimonials */
-        .testimonials .section-subtitle {
-            margin-bottom: 70px;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .testimonial-card::before {
-            content: '\201C';
-            font-size: 5rem;
-            color: rgba(0, 86, 179, 0.1);
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            line-height: 1;
-        }
-        
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-            margin-bottom: 20px;
-            font-style: italic;
-            color: var(--dark);
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-        
-        .author-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .author-info h4 {
-            font-size: 1rem;
-            margin-bottom: 5px;
-            color: var(--dark);
-        }
-        
-        .author-info p {
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-        
-        .rating {
-            color: var(--secondary);
-            margin-top: 5px;
-        }
-        
-        /* Contact */
-        .contact {
-            background: linear-gradient(rgba(0, 86, 179, 0.9), rgba(0, 86, 179, 0.9)), url('https://images.unsplash.com/photo-1584473457406-6240486418e9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80');
-            background-size: cover;
-            background-position: center;
-            color: var(--white);
-        }
-        
-        .contact .section-title {
-            color: var(--white);
-        }
-        
-        .contact .section-title::after {
-            background: var(--secondary);
-        }
-        
-        .contact .section-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .contact-container {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-info h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-        
-        .contact-info p {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .contact-info i {
-            margin-right: 15px;
-            color: var(--secondary);
-            font-size: 1.2rem;
-            margin-top: 3px;
-        }
-        
-        .contact-form {
-            flex: 1;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-        
-        .contact-form h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            transition: var(--transition);
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 60px 0 20px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--secondary);
-        }
-        
-        .footer-col p {
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-            list-style: none;
-        }
-        
-        .footer-links a {
-            color: var(--white);
-            opacity: 0.8;
-            text-decoration: none;
-            transition: var(--transition);
-            display: block;
-        }
-        
-        .footer-links a:hover {
-            opacity: 1;
-            color: var(--secondary);
-            padding-left: 5px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary);
+        .cta-btn:hover {
+            background-color: var(--dark-blue);
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
-        .footer-bottom {
+        /* Footer Aprimorado */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 20px 30px;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
         }
         
-        /* Back to Top */
-        .back-to-top {
+        .locations {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .location {
+            font-size: 18px;
+            color: var(--light-gray);
+            position: relative;
+            padding: 0 15px;
+        }
+        
+        .location:not(:last-child)::after {
+            content: '•';
+            position: absolute;
+            right: -20px;
+            color: var(--blue);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+        
+        /* Widget de Chat Aprimorado */
+        .chat-widget {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--secondary);
+            background-color: var(--purple);
             color: var(--white);
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: var(--shadow);
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
+            z-index: 999;
         }
         
-        .back-to-top.active {
+        .chat-widget:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .chat-widget i {
+            font-size: 28px;
+        }
+        
+        .chat-text {
+            position: absolute;
+            right: 85px;
+            background-color: var(--purple);
+            padding: 12px 20px;
+            border-radius: 20px 20px 0 20px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .chat-widget:hover .chat-text {
             opacity: 1;
-            visibility: visible;
+            right: 75px;
         }
         
-        .back-to-top:hover {
-            background: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        /* Responsive */
+        /* Responsividade */
         @media (max-width: 992px) {
-            .about-container {
-                flex-direction: column;
-            }
-            
-            .about-img {
-                margin-bottom: 30px;
-                width: 100%;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-            
-            .contact-info {
-                margin-bottom: 40px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            section {
-                padding: 60px 0;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
+            nav ul {
+                display: none;
             }
             
             .mobile-menu-btn {
                 display: block;
             }
             
-            nav {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--white);
-                transition: var(--transition);
-                z-index: 999;
+            .login-btn {
+                padding: 8px 15px;
+                font-size: 14px;
             }
             
-            nav.active {
-                left: 0;
+            .highlight-card {
+                padding: 40px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 600px;
             }
             
-            nav ul {
-                flex-direction: column;
-                padding: 30px;
+            .rocket {
+                width: 300px;
+                height: 300px;
             }
             
-            nav ul li {
-                margin: 15px 0;
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
             }
             
-            .header-container {
-                padding: 15px 0;
+            .highlights {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .location:not(:last-child)::after {
+                display: none;
             }
         }
         
         @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
+            header {
+                padding: 0 20px;
+                height: 70px;
             }
             
-            .hero-btns {
-                flex-direction: column;
-                gap: 10px;
+            .logo {
+                font-size: 22px;
             }
             
-            .btn {
-                width: 100%;
+            .hero {
+                margin-top: 70px;
+                min-height: 500px;
+            }
+            
+            .rocket {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .slide h1 {
+                font-size: 28px;
+            }
+            
+            .highlight {
+                padding: 3px 10px;
+            }
+            
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section {
+                padding: 60px 20px;
+            }
+            
+            .shield-icon {
+                font-size: 60px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo"><i class="fas fa-glasses"></i>Visão<span>Clara</span></a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav id="mainNav">
-                <ul>
-                    <li><a href="#home" class="active">Início</a></li>
-                    <li><a href="#services">Serviços</a></li>
-                    <li><a href="#about">Sobre</a></li>
-                    <li><a href="#products">Produtos</a></li>
-                    <li><a href="#testimonials">Depoimentos</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
+    <!-- Header Aprimorado -->
+    <header id="main-header">
+        <a href="#" class="logo"><i class="fas fa-rocket"></i>Lab <span>express</span></a>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="active">INÍCIO</a></li>
+                <li><a href="#">LOGÍSTICA</a></li>
+                <li><a href="#">PRODUTOS</a></li>
+                <li><a href="#">QUEM SOMOS</a></li>
+                <li><a href="#">CONTATO</a></li>
+            </ul>
+        </nav>
+        <button class="login-btn">
+            <i class="fas fa-user"></i> Login ClickExpress
+        </button>
     </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Sua visão perfeita começa aqui</h1>
-                <p>Na Visão Clara, combinamos tecnologia de ponta com expertise médica para oferecer os melhores cuidados oftalmológicos e soluções visuais personalizadas.</p>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn">Agendar Consulta</a>
-                    <a href="#products" class="btn btn-outline">Ver Produtos</a>
-                </div>
+    
+    <!-- Hero Section Aprimorada -->
+    <section class="hero">
+        <div class="rocket-container">
+            <div class="rocket"></div>
+        </div>
+        
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <h1>
+                VENDA<br>
+                <span class="highlight">EXPERIÊNCIA</span><br>
+                SEJA<br>
+                <span class="highlight">EXPRESS</span>
+            </h1>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide">
+            <h1>
+                <span style="font-size: 1em;">UM DOS MAIORES ESTOQUES DE<br>TODO O NORDESTE</span><br>
+                <span style="color: var(--yellow); font-size: 1.8em;">SEM FALTAS</span><br>
+                <span style="font-size: 1em;">UM DOS ESTOQUES MAIS COMPLETOS<br>DE TODO O BRASIL</span>
+            </h1>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide">
+            <h1>
+                <span style="font-size: 1em;">MARCAMOS PRESENÇA</span><br>
+                <span style="color: var(--yellow); font-size: 1.8em;">5 BASES EM<br>3 ESTADOS</span><br>
+                <span style="font-size: 1em;">PARA SER EXPRESS<br>ENCURTAMOS AS DISTÂNCIAS</span>
+            </h1>
+        </div>
+        
+        <!-- Controles do Carrossel -->
+        <div class="carousel-controls">
+            <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <!-- Navegação do Carrossel -->
+        <div class="carousel-nav">
+            <div class="carousel-dot active" data-slide="0"></div>
+            <div class="carousel-dot" data-slide="1"></div>
+            <div class="carousel-dot" data-slide="2"></div>
+        </div>
+    </section>
+    
+    <!-- Seção de Destaques Aprimorada -->
+    <section class="highlights">
+        <div class="highlight-card">
+            <div class="highlight-card-content">
+                <div class="logo">HOYA</div>
+                <h2>HOYA</h2>
+                <p>Marca Japonesa, referência no mercado pelos melhores produtos e maiores desenvolvimentos do segmento óptico.</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-card-content">
+                <div class="logo">REVOLUTION</div>
+                <h2>REVOLUTION</h2>
+                <p>Marca Americana, detentora da maior abrangência e melhor relação custo-benefício do mercado óptico.</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-card-content">
+                <div class="logo"><i class="fas fa-eye"></i></div>
+                <h2>ESSILOR</h2>
+                <p>Marca Francesa, possui hoje o maior renome e reputação do segmento por seus produtos altamente difundidos.</p>
+            </div>
+        </div>
+        <div class="highlight-card">
+            <div class="highlight-card-content">
+                <div class="logo"><i class="fas fa-shipping-fast"></i></div>
+                <h2>IMPORTAÇÃO</h2>
+                <p>Seleção de produtos importados diretamente da China, Coreia, Índia e Indonésia. Os mais acessíveis e competitivos.</p>
             </div>
         </div>
     </section>
-
-    <!-- Services -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
-            <p class="section-subtitle">Oferecemos uma gama completa de serviços oftalmológicos para cuidar da sua saúde ocular em todas as fases da vida.</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Exame Oftalmológico</h3>
-                    <p>Exames completos com equipamentos digitais de última geração para diagnóstico preciso de problemas visuais.</p>
-                    <a href="#contact" class="btn btn-outline">Saiba mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-glasses"></i>
-                    </div>
-                    <h3>Lentes Especiais</h3>
-                    <p>Lentes anti-reflexo, fotossensíveis, progressivas e para tratamento de condições oculares específicas.</p>
-                    <a href="#contact" class="btn btn-outline">Saiba mais</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Ajuste e Manutenção</h3>
-                    <p>Serviço especializado de ajuste, reparo e limpeza profissional para manter seus óculos perfeitos.</p>
-                    <a href="#contact" class="btn btn-outline">Saiba mais</a>
-                </div>
+    
+    <!-- Seção CTA Aprimorada -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>CONHEÇA O VERNIZ PROTETIVO</h2>
+            <div class="shield-icon">
+                <i class="fas fa-shield-alt"></i>
             </div>
+            <p>HOLD ON<br>TURN OFF CARE</p>
+            <button class="cta-btn">SAIBA MAIS</button>
         </div>
     </section>
-
-    <!-- About -->
-    <section class="about" id="about">
-        <div class="container about-container">
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Equipe da Visão Clara" loading="lazy">
-            </div>
-            
-            <div class="about-content">
-                <h2>Sobre a Visão Clara</h2>
-                <p>Fundada em 2010, a Visão Clara se estabeleceu como referência em excelência oftalmológica, combinando tecnologia de ponta com atendimento humanizado.</p>
-                
-                <div class="about-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div>
-                            <h4>Certificação de Qualidade</h4>
-                            <p>Certificados pelo Conselho Brasileiro de Oftalmologia e pelas principais marcas internacionais.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <div>
-                            <h4>Equipe Especializada</h4>
-                            <p>Profissionais com mais de 15 anos de experiência e formação nas melhores instituições.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-microscope"></i>
-                        </div>
-                        <div>
-                            <h4>Tecnologia Avançada</h4>
-                            <p>Equipamentos digitais de última geração para diagnósticos precisos e tratamentos eficazes.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <a href="#contact" class="btn">Conheça nossa equipe</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">Nossos Produtos</h2>
-            <p class="section-subtitle">Descubra nossa seleção premium de armações, lentes e acessórios das melhores marcas internacionais.</p>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-badge">Novo</div>
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1591073113125-e46713c829ed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Óculos de Grau" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Óculos de Grau</h3>
-                        <p>Armações elegantes com lentes de alta definição e proteção UV.</p>
-                        <div class="product-price">
-                            <div class="price">
-                                R$ 499<span class="old-price">R$ 699</span>
-                            </div>
-                            <a href="#contact" class="btn">Comprar</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-badge">Mais Vendido</div>
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" alt="Óculos de Sol" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Óculos de Sol</h3>
-                        <p>Proteção 100% UV com estilo e conforto inigualáveis.</p>
-                        <div class="product-price">
-                            <div class="price">
-                                R$ 399<span class="old-price">R$ 549</span>
-                            </div>
-                            <a href="#contact" class="btn">Comprar</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1350&q=80" alt="Lentes de Contato" loading="lazy">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lentes de Contato</h3>
-                        <p>Conforto e praticidade para seu dia a dia, em diversas opções.</p>
-                        <div class="product-price">
-                            <div class="price">
-                                R$ 199
-                            </div>
-                            <a href="#contact" class="btn">Comprar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Depoimentos</h2>
-            <p class="section-subtitle">Veja o que nossos clientes dizem sobre a qualidade dos nossos serviços e produtos.</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Finalmente encontrei uma ótica que entende minhas necessidades. Meus novos óculos progressivos são perfeitos e o atendimento foi excepcional.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Maria Silva" loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>Maria Silva</h4>
-                            <p>Paciente há 5 anos</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Como médico, sou extremamente exigente com minha saúde ocular. A Visão Clara superou todas as minhas expectativas em equipamentos e profissionalismo.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Carlos Mendes" loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>Dr. Carlos Mendes</h4>
-                            <p>Cliente desde 2018</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Meus filhos adoraram o atendimento especializado para crianças. Os óculos são resistentes e ficaram lindos! Recomendo a todos os pais.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Oliveira" loading="lazy">
-                        </div>
-                        <div class="author-info">
-                            <h4>Ana Oliveira</h4>
-                            <p>Mãe de pacientes</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <p class="section-subtitle">Agende sua consulta ou tire suas dúvidas com nossa equipe especializada.</p>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Visão Clara</h2>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. das Oftalmologias, 1234 - Centro, São Paulo - SP</p>
-                    <p><i class="fas fa-phone"></i> (11) 1234-5678 | (11) 98765-4321</p>
-                    <p><i class="fas fa-envelope"></i> contato@visaoclara.com.br</p>
-                    <p><i class="fas fa-clock"></i> Segunda a Sexta: 8h às 19h | Sábado: 8h às 13h</p>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Agendamento Online</h3>
-                    <form id="appointmentForm">
-                        <div class="form-group">
-                            <label for="name">Nome Completo</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Serviço Desejado</label>
-                            <select id="service" class="form-control" required>
-                                <option value="">Selecione um serviço</option>
-                                <option value="exame">Exame de Vista</option>
-                                <option value="consulta">Consulta Oftalmológica</option>
-                                <option value="oculos">Óculos</option>
-                                <option value="lentes">Lentes de Contato</option>
-                                <option value="manutencao">Manutenção</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" class="form-control"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Enviar Agendamento</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    
+    <!-- Footer Aprimorado -->
     <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>Sobre Nós</h3>
-                    <p>A Visão Clara é uma ótica especializada em saúde ocular, oferecendo produtos de qualidade e serviços oftalmológicos com excelência.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Links Rápidos</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#services">Serviços</a></li>
-                        <li><a href="#about">Sobre Nós</a></li>
-                        <li><a href="#products">Produtos</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Serviços</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Exame de Vista</a></li>
-                        <li><a href="#">Consultas Oftalmológicas</a></li>
-                        <li><a href="#">Lentes Especiais</a></li>
-                        <li><a href="#">Óculos de Sol</a></li>
-                        <li><a href="#">Manutenção de Óculos</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Newsletter</h3>
-                    <p>Assine nossa newsletter para receber promoções e dicas de saúde ocular.</p>
-                    <form class="newsletter-form">
-                        <div class="form-group">
-                            <input type="email" placeholder="Seu email" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn">Assinar</button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 Visão Clara. Todos os direitos reservados. | Desenvolvido com <i class="fas fa-heart" style="color: #ff7d1a;"></i> por suaagencia</p>
-            </div>
+        <div class="locations">
+            <div class="location">Juazeiro-BA</div>
+            <div class="location">Senhor do Bonfim-BA</div>
+            <div class="location">Jacobina-BA</div>
+            <div class="location">Petrolina-PE</div>
+            <div class="location">Juazeiro do Norte-CE</div>
         </div>
+        <p class="copyright">&copy; 2023 Lab Express. Todos os direitos reservados.</p>
     </footer>
-
-    <!-- Back to Top -->
-    <a href="#home" class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-
-    <!-- JavaScript -->
+    
+    <!-- Widget de Chat Aprimorado -->
+    <div class="chat-widget">
+        <i class="fas fa-comment-dots"></i>
+        <div class="chat-text">Posso ajudar?</div>
+    </div>
+    
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mainNav = document.getElementById('mainNav');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
-            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mainNav a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                }
-            });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('header');
-            const backToTop = document.getElementById('backToTop');
-            
-            if (window.scrollY > 100) {
+        // Efeito de scroll no header
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
                 header.classList.add('scrolled');
-                backToTop.classList.add('active');
             } else {
                 header.classList.remove('scrolled');
-                backToTop.classList.remove('active');
             }
         });
         
-        // Smooth scrolling for anchor links
+        // Carrossel Aprimorado
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const rocket = document.querySelector('.rocket');
+        let slideInterval;
+        
+        function showSlide(n) {
+            // Esconde todos os slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.style.opacity = '0';
+            });
+            
+            // Remove a classe active de todos os dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Atualiza o slide atual
+            currentSlide = (n + slides.length) % slides.length;
+            
+            // Mostra o slide atual
+            slides[currentSlide].classList.add('active');
+            setTimeout(() => {
+                slides[currentSlide].style.opacity = '1';
+            }, 10);
+            
+            // Ativa o dot correspondente
+            dots[currentSlide].classList.add('active');
+            
+            // Move o foguete aleatoriamente
+            moveRocket();
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        function moveRocket() {
+            const x = Math.random() * 30 - 15;
+            const y = Math.random() * 30 - 15;
+            const rotation = Math.random() * 15 - 7.5;
+            
+            rocket.style.transform = `translate(${x}px, ${y}px) rotate(${rotation}deg)`;
+        }
+        
+        // Inicia o carrossel automático
+        function startSlideShow() {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // Para o carrossel automático
+        function pauseSlideShow() {
+            clearInterval(slideInterval);
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            pauseSlideShow();
+            startSlideShow();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            pauseSlideShow();
+            startSlideShow();
+        });
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                showSlide(slideIndex);
+                pauseSlideShow();
+                startSlideShow();
+            });
+        });
+        
+        // Pausa o carrossel quando o mouse está sobre ele
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('mouseenter', pauseSlideShow);
+        heroSection.addEventListener('mouseleave', startSlideShow);
+        
+        // Inicialização
+        showSlide(0);
+        startSlideShow();
+        moveRocket(); // Posição inicial do foguete
+        
+        // Menu mobile (simplificado)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        // Animação suave para links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                if (targetId === '#') return;
                 
+                const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
@@ -1223,39 +843,6 @@
                 }
             });
         });
-        
-        // Form submission
-        const appointmentForm = document.getElementById('appointmentForm');
-        
-        if (appointmentForm) {
-            appointmentForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Here you would typically send the form data to your server
-                // For demonstration, we'll just show an alert
-                alert('Agendamento enviado com sucesso! Entraremos em contato para confirmar.');
-                this.reset();
-            });
-        }
-        
-        // Newsletter form
-        const newsletterForm = document.querySelector('.newsletter-form');
-        
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Obrigado por assinar nossa newsletter!');
-                this.reset();
-            });
-        }
-        
-        // Lazy loading for images
-        if ('loading' in HTMLImageElement.prototype) {
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            images.forEach(img => {
-                img.src = img.dataset.src;
-            });
-        }
     </script>
 </body>
 </html>
