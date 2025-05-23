@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab Express - Soluções Ópticas Rápidas</title>
+    <title>Lab Express - Soluções Ópticas Expressas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* Reset e Variáveis */
         :root {
             --dark-gray: #2c3e50;
             --medium-gray: #34495e;
@@ -19,7 +18,9 @@
             --purple: #9b59b6;
             --white: #ffffff;
             --black: #1a252f;
-            --transition: all 0.3s ease;
+            --green: #2ecc71;
+            --whatsapp: #25D366;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         * {
@@ -33,9 +34,10 @@
             color: var(--black);
             line-height: 1.6;
             overflow-x: hidden;
+            background-color: #f9f9f9;
         }
         
-        /* Header Aprimorado */
+        /* Header Animalizado */
         header {
             background-color: var(--dark-gray);
             color: var(--white);
@@ -48,95 +50,137 @@
             justify-content: space-between;
             align-items: center;
             height: 80px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
         }
         
         header.scrolled {
             height: 70px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: rgba(44, 62, 80, 0.97);
+            backdrop-filter: blur(10px);
         }
         
-        .logo {
-            font-size: 28px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            transition: var(--transition);
+        }
+        
+        .logo-img {
+            height: 60px;
+            margin-right: 65px;
+            transition: var(--transition);
+        }
+        
+        .logo-text {
+            font-size: 29px;
             font-weight: 800;
             color: var(--white);
             text-decoration: none;
             display: flex;
             align-items: center;
+            transition: var(--transition);
         }
         
-        .logo span {
+        .logo-text span {
             color: var(--blue);
+            font-weight: 700;
+            margin-left: 5px;
         }
         
-        .logo i {
-            margin-right: 10px;
-            font-size: 24px;
-        }
-        
+        /* Menu e Botões */
         nav ul {
             display: flex;
             list-style: none;
         }
         
         nav ul li {
-            margin: 0 10px;
+            margin: 0 8px;
             position: relative;
         }
         
         nav ul li a {
             color: var(--white);
             text-decoration: none;
-            font-weight: 500;
-            padding: 10px 15px;
-            border-radius: 4px;
+            font-weight: 600;
+            padding: 12px 18px;
+            border-radius: 30px;
             transition: var(--transition);
             display: block;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::before {
+            left: 100%;
         }
         
         nav ul li a.active, nav ul li a:hover {
             background-color: var(--black);
-            transform: translateY(-2px);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--blue);
-            bottom: 0;
-            left: 0;
-            transition: var(--transition);
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .login-btn {
             background-color: var(--blue);
             color: var(--white);
             border: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 30px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             transition: var(--transition);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(41, 128, 185, 0.4);
+            margin-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: var(--transition);
         }
         
         .login-btn:hover {
             background-color: var(--dark-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.6);
+        }
+        
+        .login-btn:hover::after {
+            transform: translateX(100%);
         }
         
         .login-btn i {
             margin-right: 8px;
+            font-size: 16px;
         }
         
         .mobile-menu-btn {
@@ -146,12 +190,18 @@
             color: var(--white);
             font-size: 24px;
             cursor: pointer;
+            margin-left: 20px;
+            transition: var(--transition);
         }
         
-        /* Hero Section Aprimorada */
+        .mobile-menu-btn:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Hero Section Animalizada */
         .hero {
             height: 100vh;
-            min-height: 700px;
+            min-height: 800px;
             background: linear-gradient(135deg, var(--medium-gray), var(--dark-gray));
             position: relative;
             overflow: hidden;
@@ -171,12 +221,13 @@
         }
         
         .rocket {
-            width: 400px;
-            height: 400px;
+            width: 450px;
+            height: 450px;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="white" d="M50,10 L60,40 L70,30 L50,10 Z M30,30 L40,40 L50,10 L30,30 Z M70,30 L60,40 L80,50 L70,30 Z M40,40 L30,30 L20,50 L40,40 Z M60,40 L40,40 L50,60 L60,40 Z M80,50 L60,40 L50,60 L80,50 Z M20,50 L40,40 L50,60 L20,50 Z M50,60 L40,70 L60,70 L50,60 Z"/></svg>') no-repeat center center;
             background-size: contain;
             opacity: 0.8;
-            transition: all 1s ease-out;
+            transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 0 20px rgba(52, 152, 219, 0.7));
         }
         
         .slide {
@@ -201,18 +252,27 @@
         }
         
         .slide h1 {
-            font-size: clamp(36px, 6vw, 72px);
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-size: clamp(36px, 6vw, 82px);
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            letter-spacing: 1px;
         }
         
         .highlight {
-            background-color: rgba(52, 152, 219, 0.5);
-            padding: 5px 15px;
-            border-radius: 4px;
+            background-color: rgba(52, 152, 219, 0.7);
+            padding: 8px 25px;
+            border-radius: 30px;
             display: inline-block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: skewX(-10deg);
+            transition: var(--transition);
+        }
+        
+        .highlight:hover {
+            transform: skewX(-10deg) scale(1.05);
+            background-color: rgba(41, 128, 185, 0.8);
         }
         
         .carousel-controls {
@@ -220,71 +280,94 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 30px;
+            padding: 0 40px;
             z-index: 10;
         }
         
         .carousel-btn {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             color: var(--white);
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            font-size: 20px;
+            font-size: 24px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
         .carousel-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.25);
             transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         }
         
         .carousel-nav {
             position: absolute;
-            bottom: 40px;
+            bottom: 50px;
             display: flex;
             z-index: 10;
         }
         
         .carousel-dot {
-            width: 14px;
-            height: 14px;
-            background-color: rgba(255, 255, 255, 0.5);
+            width: 16px;
+            height: 16px;
+            background-color: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
-            margin: 0 8px;
+            margin: 0 10px;
             cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-dot::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--white);
             transition: var(--transition);
         }
         
         .carousel-dot.active {
-            background-color: var(--white);
-            transform: scale(1.2);
+            transform: scale(1.3);
         }
         
-        /* Seção de Destaques Aprimorada */
+        .carousel-dot.active::after {
+            left: 0;
+        }
+        
+        /* Seção de Destaques Animalizada */
         .highlights {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             text-align: center;
             color: var(--white);
+            position: relative;
+            z-index: 2;
         }
         
         .highlight-card {
-            padding: 60px 30px;
+            padding: 80px 30px;
             position: relative;
             overflow: hidden;
             transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
         
         .highlight-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            z-index: 3;
         }
         
         .highlight-card::before {
@@ -294,8 +377,25 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0));
             z-index: 1;
+        }
+        
+        .highlight-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--white);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .highlight-card:hover::after {
+            transform: scaleX(1);
         }
         
         .highlight-card:nth-child(1) {
@@ -317,30 +417,89 @@
         .highlight-card-content {
             position: relative;
             z-index: 2;
+            transform: translateZ(30px);
         }
         
         .highlight-card .logo {
-            font-size: 32px;
-            margin-bottom: 15px;
+            font-size: 60px;
+            margin-bottom: 20px;
             display: inline-block;
+            transition: var(--transition);
+        }
+        
+        .highlight-card:hover .logo {
+            transform: rotate(15deg) scale(1.2);
         }
         
         .highlight-card h2 {
-            font-size: 28px;
-            margin: 15px 0;
-            font-weight: 700;
+            font-size: 32px;
+            margin: 20px 0;
+            font-weight: 800;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
         
         .highlight-card p {
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.7;
             opacity: 0.9;
         }
         
-        /* Seção CTA Aprimorada */
+        /* Seções de Conteúdo */
+        .content-section {
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+        
+        .content-section:nth-child(odd) {
+            background-color: var(--white);
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 40px;
+            color: var(--dark-gray);
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--blue);
+            border-radius: 2px;
+        }
+        
+        .section-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Seção CTA Animalizada */
         .cta-section {
             background-color: var(--dark-gray);
-            padding: 100px 20px;
+            padding: 150px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -354,8 +513,9 @@
             width: 100%;
             height: 100%;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="white" d="M50,10 L60,40 L70,30 L50,10 Z M30,30 L40,40 L50,10 L30,30 Z M70,30 L60,40 L80,50 L70,30 Z M40,40 L30,30 L20,50 L40,40 Z M60,40 L40,40 L50,60 L60,40 Z M80,50 L60,40 L50,60 L80,50 Z M20,50 L40,40 L50,60 L20,50 Z M50,60 L40,70 L60,70 L50,60 Z"/></svg>') no-repeat center center;
-            background-size: 400px;
+            background-size: 500px;
             opacity: 0.03;
+            animation: float 15s infinite ease-in-out;
         }
         
         .cta-content {
@@ -366,58 +526,104 @@
         }
         
         .cta-section h2 {
-            font-size: clamp(28px, 5vw, 42px);
-            color: var(--white);
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
-        
-        .shield-icon {
-            font-size: 80px;
-            color: #2ecc71;
-            margin: 30px 0;
-            display: inline-block;
-            transition: var(--transition);
-        }
-        
-        .shield-icon:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-        
-        .cta-section p {
-            font-size: clamp(20px, 3vw, 28px);
+            font-size: clamp(36px, 6vw, 60px);
             color: var(--white);
             margin-bottom: 40px;
-            font-weight: 600;
-        }
-        
-        .cta-btn {
-            background-color: var(--blue);
-            color: var(--white);
-            border: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 18px;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            text-transform: uppercase;
+            font-weight: 900;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             letter-spacing: 1px;
         }
         
-        .cta-btn:hover {
-            background-color: var(--dark-blue);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        .shield-container {
+            position: relative;
+            display: inline-block;
+            margin: 40px 0;
         }
         
-        /* Footer Aprimorado */
+        .shield-icon {
+            font-size: 100px;
+            color: var(--green);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 10px rgba(46, 204, 113, 0.5));
+        }
+        
+        .shield-pulse {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(46, 204, 113, 0.3);
+            animation: pulse 2s infinite;
+            z-index: 1;
+        }
+        
+        .cta-section p {
+            font-size: clamp(24px, 3vw, 32px);
+            color: var(--white);
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .cta-btn {
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 20px;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition);
+        }
+        
+        .cta-btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.6);
+        }
+        
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Footer Animalizado */
         footer {
             background-color: var(--black);
             color: var(--white);
-            padding: 60px 20px 30px;
+            padding: 80px 20px 40px;
             text-align: center;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blue), var(--green), var(--yellow), var(--orange));
         }
         
         .locations {
@@ -425,14 +631,15 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 40px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .location {
             font-size: 18px;
             color: var(--light-gray);
             position: relative;
-            padding: 0 15px;
+            padding: 0 20px;
+            font-weight: 500;
         }
         
         .location:not(:last-child)::after {
@@ -440,64 +647,347 @@
             position: absolute;
             right: -20px;
             color: var(--blue);
+            font-weight: bold;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .copyright {
             margin-top: 30px;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 14px;
         }
         
-        /* Widget de Chat Aprimorado */
+        /* Widget de Chat Animalizado */
         .chat-widget {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background-color: var(--purple);
             color: var(--white);
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(155, 89, 182, 0.5);
             transition: var(--transition);
             z-index: 999;
+            animation: float 3s infinite ease-in-out;
         }
         
         .chat-widget:hover {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 15px 40px rgba(155, 89, 182, 0.7);
+            animation: none;
         }
         
         .chat-widget i {
-            font-size: 28px;
+            font-size: 32px;
         }
         
         .chat-text {
             position: absolute;
-            right: 85px;
+            right: 90px;
             background-color: var(--purple);
-            padding: 12px 20px;
-            border-radius: 20px 20px 0 20px;
+            padding: 15px 25px;
+            border-radius: 30px 30px 0 30px;
             white-space: nowrap;
             opacity: 0;
             pointer-events: none;
             transition: var(--transition);
-            font-weight: 500;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .chat-widget:hover .chat-text {
             opacity: 1;
-            right: 75px;
+            right: 80px;
+        }
+        
+        /* Botão do WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 130px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: var(--white);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+            transition: var(--transition);
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.7);
+            animation: none;
+        }
+        
+        .whatsapp-btn i {
+            font-size: 36px;
+        }
+        
+        .whatsapp-text {
+            position: absolute;
+            right: 90px;
+            background-color: var(--whatsapp);
+            padding: 15px 25px;
+            border-radius: 30px 30px 0 30px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .whatsapp-btn:hover .whatsapp-text {
+            opacity: 1;
+            right: 80px;
+        }
+        
+        /* Atendente Virtual */
+        .virtual-assistant {
+            position: fixed;
+            bottom: 230px;
+            right: 30px;
+            width: 350px;
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transform: translateX(120%);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+        
+        .virtual-assistant.active {
+            transform: translateX(0);
+        }
+        
+        .assistant-header {
+            background-color: var(--blue);
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .assistant-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .assistant-header h3 i {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .close-assistant {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close-assistant:hover {
+            transform: rotate(90deg);
+        }
+        
+        .assistant-body {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+        }
+        
+        .assistant-message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .assistant-message.bot {
+            align-items: flex-start;
+        }
+        
+        .assistant-message.user {
+            align-items: flex-end;
+        }
+        
+        .message-bubble {
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            margin-bottom: 5px;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .bot .message-bubble {
+            background-color: var(--light-gray);
+            color: var(--black);
+            border-top-left-radius: 5px;
+        }
+        
+        .user .message-bubble {
+            background-color: var(--blue);
+            color: var(--white);
+            border-top-right-radius: 5px;
+        }
+        
+        .message-time {
+            font-size: 12px;
+            color: var(--medium-gray);
+        }
+        
+        .assistant-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .assistant-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 30px;
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .assistant-input input:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .send-message {
+            background-color: var(--blue);
+            color: var(--white);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .send-message:hover {
+            background-color: var(--dark-blue);
+            transform: rotate(15deg);
+        }
+        
+        /* Animações */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(46, 204, 113, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* Responsividade */
+        @media (max-width: 1200px) {
+            .virtual-assistant {
+                width: 300px;
+            }
+        }
+        
         @media (max-width: 992px) {
             nav ul {
                 display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-gray);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                padding: 15px;
+                border-radius: 0;
             }
             
             .mobile-menu-btn {
@@ -505,18 +995,38 @@
             }
             
             .login-btn {
-                padding: 8px 15px;
-                font-size: 14px;
+                margin-left: auto;
             }
             
-            .highlight-card {
-                padding: 40px 20px;
+            .rocket {
+                width: 350px;
+                height: 350px;
+            }
+            
+            .virtual-assistant {
+                bottom: 200px;
+            }
+            
+            .whatsapp-btn {
+                bottom: 100px;
+            }
+            
+            .chat-widget {
+                bottom: 30px;
             }
         }
         
         @media (max-width: 768px) {
+            .logo-text {
+                font-size: 24px;
+            }
+            
+            .logo-img {
+                height: 40px;
+            }
+            
             .hero {
-                min-height: 600px;
+                min-height: 700px;
             }
             
             .rocket {
@@ -525,33 +1035,61 @@
             }
             
             .carousel-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
             }
             
-            .highlights {
-                grid-template-columns: 1fr 1fr;
+            .highlight-card {
+                padding: 60px 20px;
             }
             
-            .location:not(:last-child)::after {
-                display: none;
+            .virtual-assistant {
+                width: 280px;
+                bottom: 180px;
+                right: 20px;
+            }
+            
+            .whatsapp-btn {
+                right: 20px;
+                width: 70px;
+                height: 70px;
+                bottom: 90px;
+            }
+            
+            .whatsapp-btn i {
+                font-size: 30px;
+            }
+            
+            .chat-widget {
+                right: 20px;
+                width: 70px;
+                height: 70px;
+            }
+            
+            .chat-widget i {
+                font-size: 28px;
             }
         }
         
         @media (max-width: 576px) {
             header {
-                padding: 0 20px;
+                padding: 0 15px;
                 height: 70px;
             }
             
-            .logo {
-                font-size: 22px;
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .logo-img {
+                height: 35px;
+                margin-right: 10px;
             }
             
             .hero {
                 margin-top: 70px;
-                min-height: 500px;
+                min-height: 600px;
             }
             
             .rocket {
@@ -560,51 +1098,92 @@
             }
             
             .slide h1 {
-                font-size: 28px;
+                font-size: 32px;
             }
             
             .highlight {
-                padding: 3px 10px;
+                padding: 6px 15px;
             }
             
             .highlights {
                 grid-template-columns: 1fr;
             }
             
-            .cta-section {
-                padding: 60px 20px;
+            .content-section, .cta-section {
+                padding: 80px 20px;
             }
             
             .shield-icon {
-                font-size: 60px;
+                font-size: 80px;
+            }
+            
+            .virtual-assistant {
+                width: 90%;
+                right: 5%;
+                bottom: 160px;
+            }
+            
+            .whatsapp-btn {
+                bottom: 80px;
+                right: 15px;
+                width: 60px;
+                height: 60px;
+            }
+            
+            .whatsapp-btn i {
+                font-size: 26px;
+            }
+            
+            .chat-widget {
+                right: 15px;
+                width: 60px;
+                height: 60px;
+                bottom: 20px;
+            }
+            
+            .chat-widget i {
+                font-size: 24px;
+            }
+            
+            .location:not(:last-child)::after {
+                display: none;
+            }
+            
+            .locations {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Aprimorado -->
+    <!-- Header Animalizado -->
     <header id="main-header">
-        <a href="#" class="logo"><i class="fas fa-rocket"></i>Lab <span>express</span></a>
+        <div class="logo-container">
+            <!-- Logo da marca - substitua pelo seu arquivo de logo -->
+            <img src="LOGO.avif" alt="Lab Express Logo" class="logo-img">
+            <a href="#" class="logo-text">LAB<span>EXPRESS</span></a>
+        </div>
         
         <button class="mobile-menu-btn">
             <i class="fas fa-bars"></i>
         </button>
         
         <nav>
-            <ul>
+            <ul id="main-nav">
                 <li><a href="#" class="active">INÍCIO</a></li>
-                <li><a href="#">LOGÍSTICA</a></li>
-                <li><a href="#">PRODUTOS</a></li>
-                <li><a href="#">QUEM SOMOS</a></li>
-                <li><a href="#">CONTATO</a></li>
+                <li><a href="#logistica">LOGÍSTICA</a></li>
+                <li><a href="#produtos">PRODUTOS</a></li>
+                <li><a href="#quem-somos">QUEM SOMOS</a></li>
+                <li><a href="#contato">CONTATO</a></li>
             </ul>
         </nav>
         <button class="login-btn">
-            <i class="fas fa-user"></i> Login ClickExpress
+            <i class="fas fa-user"></i> Login
         </button>
     </header>
     
-    <!-- Hero Section Aprimorada -->
+    <!-- Hero Section Animalizada -->
     <section class="hero">
         <div class="rocket-container">
             <div class="rocket"></div>
@@ -652,7 +1231,7 @@
         </div>
     </section>
     
-    <!-- Seção de Destaques Aprimorada -->
+    <!-- Seção de Destaques Animalizada -->
     <section class="highlights">
         <div class="highlight-card">
             <div class="highlight-card-content">
@@ -684,19 +1263,75 @@
         </div>
     </section>
     
-    <!-- Seção CTA Aprimorada -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>CONHEÇA O VERNIZ PROTETIVO</h2>
-            <div class="shield-icon">
-                <i class="fas fa-shield-alt"></i>
+    <!-- Seção Logística -->
+    <section id="logistica" class="content-section">
+        <div class="section-container">
+            <h2 class="section-title">LOGÍSTICA EXPRESSA</h2>
+            <div class="section-content">
+                <p>Nossa rede logística abrange todo o Nordeste com 5 bases estratégicas para entrega rápida e eficiente. Com centros de distribuição em Juazeiro-BA, Senhor do Bonfim-BA, Jacobina-BA, Petrolina-PE e Juazeiro do Norte-CE, garantimos entregas expressas em todo o território nordestino.</p>
+                <p>Utilizamos tecnologia de ponta para rastreamento de pedidos e otimização de rotas, assegurando que seus produtos cheguem no prazo combinado, sem atrasos e com a qualidade que você merece.</p>
             </div>
-            <p>HOLD ON<br>TURN OFF CARE</p>
-            <button class="cta-btn">SAIBA MAIS</button>
         </div>
     </section>
     
-    <!-- Footer Aprimorado -->
+    <!-- Seção Produtos -->
+    <section id="produtos" class="content-section">
+        <div class="section-container">
+            <h2 class="section-title">PRODUTOS PREMIUM</h2>
+            <div class="section-content">
+                <p>Oferecemos os melhores produtos ópticos das principais marcas nacionais e internacionais. Nossa linha inclui:</p>
+                <ul style="text-align: left; max-width: 600px; margin: 30px auto;">
+                    <li><i class="fas fa-check" style="color: var(--blue); margin-right: 10px;"></i> Lentes oftálmicas de última geração</li>
+                    <li><i class="fas fa-check" style="color: var(--blue); margin-right: 10px;"></i> Armações de alta qualidade</li>
+                    <li><i class="fas fa-check" style="color: var(--blue); margin-right: 10px;"></i> Lentes de contato das melhores marcas</li>
+                    <li><i class="fas fa-check" style="color: var(--blue); margin-right: 10px;"></i> Equipamentos para ópticas</li>
+                    <li><i class="fas fa-check" style="color: var(--blue); margin-right: 10px;"></i> Produtos de limpeza e manutenção</li>
+                </ul>
+                <p>Trabalhamos com as marcas HOYA, Essilor, Revolution e outras líderes de mercado, garantindo qualidade e procedência.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção Quem Somos -->
+    <section id="quem-somos" class="content-section">
+        <div class="section-container">
+            <h2 class="section-title">QUEM SOMOS</h2>
+            <div class="section-content">
+                <p>O Lab Express é uma empresa comprometida com a excelência e velocidade no fornecimento de soluções ópticas. Com mais de 15 anos de experiência no mercado, nos tornamos referência no Nordeste pela qualidade de nossos produtos e agilidade em nossa logística.</p>
+                <p>Nossa missão é proporcionar aos nossos clientes acesso aos melhores produtos ópticos com a velocidade que só o Lab Express pode oferecer. Valorizamos a transparência, a ética e o compromisso com a satisfação total de nossos clientes.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção Contato -->
+    <section id="contato" class="content-section">
+        <div class="section-container">
+            <h2 class="section-title">FALE CONOSCO</h2>
+            <div class="section-content">
+                <p>Entre em contato conosco para mais informações sobre nossos produtos e serviços. Nossa equipe está pronta para atendê-lo.</p>
+                <div style="margin-top: 40px; text-align: center;">
+                    <p style="margin-bottom: 15px;"><i class="fas fa-phone" style="color: var(--blue); margin-right: 10px;"></i> <strong>(74) 1234-5678</strong></p>
+                    <p style="margin-bottom: 15px;"><i class="fas fa-envelope" style="color: var(--blue); margin-right: 10px;"></i> <strong>contato@labexpress.com.br</strong></p>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--blue); margin-right: 10px;"></i> <strong>Av. Principal, 123 - Centro, Juazeiro-BA</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção CTA Animalizada -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>PROTEÇÃO REVOLUCIONÁRIA</h2>
+            <div class="shield-container">
+                <div class="shield-pulse"></div>
+                <i class="fas fa-shield-alt shield-icon"></i>
+            </div>
+            <p>O VERNIZ PROTETIVO MAIS AVANÇADO<br>DO MERCADO</p>
+            <button class="cta-btn">DESCUBRA MAIS</button>
+        </div>
+    </section>
+    
+    <!-- Footer Animalizado -->
     <footer>
         <div class="locations">
             <div class="location">Juazeiro-BA</div>
@@ -705,11 +1340,43 @@
             <div class="location">Petrolina-PE</div>
             <div class="location">Juazeiro do Norte-CE</div>
         </div>
+        
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+        
         <p class="copyright">&copy; 2023 Lab Express. Todos os direitos reservados.</p>
     </footer>
     
-    <!-- Widget de Chat Aprimorado -->
-    <div class="chat-widget">
+    <!-- Atendente Virtual -->
+    <div class="virtual-assistant">
+        <div class="assistant-header">
+            <h3><i class="fas fa-robot"></i> Atendente Virtual</h3>
+            <button class="close-assistant"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="assistant-body">
+            <div class="assistant-message bot">
+                <div class="message-bubble">Olá! Sou o assistente virtual do Lab Express. Como posso te ajudar hoje?</div>
+                <div class="message-time">Agora</div>
+            </div>
+        </div>
+        <div class="assistant-input">
+            <input type="text" placeholder="Digite sua mensagem...">
+            <button class="send-message"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <!-- Botão do WhatsApp -->
+    <a href="https://wa.me/5574999999999" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-text">Fale conosco</div>
+    </a>
+    
+    <!-- Widget de Chat Animalizado -->
+    <div class="chat-widget" id="chat-widget">
         <i class="fas fa-comment-dots"></i>
         <div class="chat-text">Posso ajudar?</div>
     </div>
@@ -723,8 +1390,60 @@
             } else {
                 header.classList.remove('scrolled');
             }
+            
+            // Atualiza o menu ativo conforme scroll
+            updateActiveMenu();
         });
+
+        // Menu mobile
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
         
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('show');
+        });
+
+        // Fecha o menu mobile ao clicar em um link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    mainNav.classList.remove('show');
+                }
+                
+                // Remove a classe active de todos os links
+                document.querySelectorAll('nav ul li a').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Adiciona a classe active no link clicado
+                link.classList.add('active');
+            });
+        });
+
+        // Atualiza o menu ativo conforme scroll
+        function updateActiveMenu() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}` || (current === '' && link.getAttribute('href') === '#')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
         // Carrossel Aprimorado
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
@@ -817,16 +1536,8 @@
         showSlide(0);
         startSlideShow();
         moveRocket(); // Posição inicial do foguete
-        
-        // Menu mobile (simplificado)
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('nav ul');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-        });
-        
-        // Animação suave para links
+
+        // Suaviza o scroll para as seções
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -843,6 +1554,79 @@
                 }
             });
         });
+
+        // Atendente Virtual
+        const chatWidget = document.getElementById('chat-widget');
+        const virtualAssistant = document.querySelector('.virtual-assistant');
+        const closeAssistant = document.querySelector('.close-assistant');
+        const sendMessageBtn = document.querySelector('.send-message');
+        const messageInput = document.querySelector('.assistant-input input');
+        const assistantBody = document.querySelector('.assistant-body');
+        
+        chatWidget.addEventListener('click', () => {
+            virtualAssistant.classList.toggle('active');
+        });
+        
+        closeAssistant.addEventListener('click', () => {
+            virtualAssistant.classList.remove('active');
+        });
+        
+        function addBotMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'assistant-message bot';
+            messageDiv.innerHTML = `
+                <div class="message-bubble">${text}</div>
+                <div class="message-time">Agora</div>
+            `;
+            assistantBody.appendChild(messageDiv);
+            assistantBody.scrollTop = assistantBody.scrollHeight;
+        }
+        
+        function addUserMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'assistant-message user';
+            messageDiv.innerHTML = `
+                <div class="message-bubble">${text}</div>
+                <div class="message-time">Agora</div>
+            `;
+            assistantBody.appendChild(messageDiv);
+            assistantBody.scrollTop = assistantBody.scrollHeight;
+        }
+        
+        sendMessageBtn.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                addUserMessage(message);
+                messageInput.value = '';
+                
+                // Resposta automática do bot
+                setTimeout(() => {
+                    const responses = [
+                        "Entendi sua dúvida. Um de nossos atendentes já foi notificado e entrará em contato em breve.",
+                        "Ótima pergunta! Vou verificar isso para você.",
+                        "Para melhor atendê-lo, você poderia informar seu número de telefone?",
+                        "Estamos aqui para ajudar. Você gostaria de agendar uma visita em uma de nossas unidades?",
+                        "Obrigado pelo contato! Como posso te ajudar hoje?"
+                    ];
+                    
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    addBotMessage(randomResponse);
+                }, 1000);
+            }
+        });
+        
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessageBtn.click();
+            }
+        });
+
+        // Inicializa o atendente com uma mensagem após 10 segundos
+        setTimeout(() => {
+            if (!virtualAssistant.classList.contains('active')) {
+                addBotMessage("Estou aqui para te ajudar! Clique no ícone de chat se precisar de algo.");
+            }
+        }, 10000);
     </script>
 </body>
 </html>
